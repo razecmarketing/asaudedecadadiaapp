@@ -1,0 +1,539 @@
+:root {
+    --primary-color: #1a5e2e;
+    --secondary-color: #50c878;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --button-color: #3b5998;  
+    --success-color: #28a745;
+    --fail-color: #dc3545;
+    --gold-color: #FFD700;  
+    --bg-gradient-start: #1a5e2e;
+    --bg-gradient-end: #50c878;
+    --text-shadow-color: rgba(0,0,0,0.2);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    overflow-x: hidden;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 100px;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.header-text {
+    text-align: center;
+}
+
+.header-text h1 {
+    color: var(--gold-color);  
+}
+
+.header-text h2 {
+    color: white;  
+}
+
+.form-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: var(--button-color); 
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2f477a;  
+}
+
+#proceed-to-next-day-btn {
+    margin-top: 20px;
+    background-color: var(--success-color);
+    color: white;
+    padding: 15px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#proceed-to-next-day-btn:hover {
+    background-color: #218838;
+}
+
+.personality-card {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.challenges-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.challenges-section ul {
+    list-style-type: none;
+}
+
+.challenge-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.challenge-actions {
+    display: flex;
+    align-items: center;
+}
+
+.challenge-checkbox {
+    margin-right: 10px;
+}
+
+.challenge-status-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-success, .btn-fail {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    border-radius: 5px;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-fail {
+    background-color: var(--fail-color);
+    color: white;
+}
+
+.challenge-completed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #e6f3e6;
+}
+
+.challenge-failed {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #f9e6e6;
+}
+
+#motivation-section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.positive-motivation {
+    background-color: #e6f3e6;
+    color: #2a5c2a;
+}
+
+.negative-motivation {
+    background-color: #f9e6e6;
+    color: #8b0000;
+}
+
+.motivation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.challenge-focus-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.focus-btn {
+    background-color: #3b5998;  
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.focus-btn:hover {
+    background-color: #2f477a;  
+}
+
+.glitch {
+    position: relative;
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    animation: glitch-anim2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); }
+    100% { clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%); }
+    100% { clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%); }
+}
+
+.parallax-hover {
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.parallax-hover:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+#cursor-dot {
+    display: none;
+}
+
+.app-footer {
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.app-footer p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.footer-icon {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2);
+}
+
+.footer-icons.mobile-only {
+    display: flex;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 100;
+}
+
+.sidebar-icon {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.sidebar-icon:hover {
+    background-color: rgba(0,0,0,0.7);
+    transform: scale(1.1);
+}
+
+.sidebar-icon .tooltip {
+    position: absolute;
+    right: 110%;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.sidebar-icon:hover .tooltip {
+    opacity: 1;
+}
+
+.sidebar .sidebar-icon a, .footer-icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar-icon#whatsapp-icon svg, .footer-icon#mobile-whatsapp-icon svg {
+    fill: #25D366; /* WhatsApp green color */
+}
+
+.sidebar-icon#whatsapp-icon:hover svg, .footer-icon#mobile-whatsapp-icon:hover svg {
+    transform: scale(1.2);
+}
+
+.notebook-modal textarea {
+    width: 100%;
+    height: 200px;
+    margin: 15px 0;
+    padding: 10px;
+    resize: vertical;
+}
+
+.notebook-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.notebook-actions button {
+    flex: 1;
+    margin: 0 5px;
+}
+
+#saved-notes-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#saved-notes-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#saved-notes-list li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-modal {
+    max-width: 300px;
+    background-color: #f0f4ff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 255, 0.1);
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+#calculator-display {
+    width: 100%;
+    text-align: right;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: #e6eaf8;
+    border: 1px solid #3a6df0;
+    border-radius: 8px;
+    color: #2c3e50;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calc-btn, #calculate-btn, #clear-btn {
+    padding: 15px;
+    font-size: 1em;
+    background-color: #3a6df0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.calc-btn:hover, #calculate-btn:hover, #clear-btn:hover {
+    background-color: #2554f6;
+    transform: scale(1.05);
+}
+
+.operator {
+    background-color: #5d7eff;
+}
+
+#calculate-btn {
+    background-color: #1e40ff;
+    grid-column: span 4;
+}
+
+#clear-btn {
+    background-color: #ff4d4d;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        display: flex;
+    }
+    
+    .footer-icons.mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        display: none;
+    }
+}
