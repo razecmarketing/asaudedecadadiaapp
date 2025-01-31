@@ -517,31 +517,62 @@ button:hover {
 
 @media (max-width: 767px) {
     .sidebar {
-        display: flex;
         flex-direction: column;
         position: fixed;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
         z-index: 1000;
-        background-color: rgba(0,0,0,0.5);
+        background: none; 
         padding: 10px;
         border-radius: 0 10px 10px 0;
     }
 
     .sidebar-icon {
-        margin: 10px 0;
-        width: 40px;
-        height: 40px;
+        margin: 5px 0;
+        width: 35px;
+        height: 35px;
+        background: none; 
+        box-shadow: none; 
+        transition: transform 0.3s ease;
     }
 
-    .sidebar-icon .tooltip {
-        display: none; /* Hide tooltip on mobile */
+    .sidebar-icon:active {
+        transform: scale(0.9); 
     }
 
-    .footer-icons.mobile-only {
-        display: none; /* Hide mobile footer icons as they're now in sidebar */
+    .modal-content {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; 
+        max-width: 400px;
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        animation: modalSlideUp 0.3s ease;
     }
+
+    @keyframes modalSlideUp {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 50%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.sidebar-icon svg {
+    transition: fill 0.3s ease;
+}
+
+.sidebar-icon:hover svg {
+    fill: var(--secondary-color);
 }
 
 @media (min-width: 768px) {
